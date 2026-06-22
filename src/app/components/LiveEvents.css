@@ -1,0 +1,112 @@
+.live-events-viewport-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.live-events-track {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.live-events-strip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  transform: translate3d(calc(-1 * var(--mobile-center)), -50%, 0);
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.live-events-slide {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 250px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #f7f7f7;
+  opacity: 0.5;
+  transition:
+    width 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 420ms ease;
+  will-change: width, height, opacity;
+}
+
+.live-events-slide--active {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+.live-events-strip--instant,
+.live-events-strip--instant .live-events-slide {
+  transition: none;
+}
+
+.live-events-slide:not(:disabled) {
+  cursor: pointer;
+}
+
+.live-events-slide:focus-visible {
+  outline: 2px solid #b00020;
+  outline-offset: 4px;
+}
+
+.live-events-copy {
+  animation: live-events-copy-in 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes live-events-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .live-events-track {
+    height: 600px;
+  }
+
+  .live-events-strip {
+    gap: 24px;
+    transform: translate3d(calc(-1 * var(--desktop-center)), -50%, 0);
+  }
+
+  .live-events-slide {
+    width: 400px;
+    height: 400px;
+  }
+
+  .live-events-slide--active {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-events-strip,
+  .live-events-slide {
+    transition: none;
+  }
+
+  .live-events-copy {
+    animation: none;
+  }
+}

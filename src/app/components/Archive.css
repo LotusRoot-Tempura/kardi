@@ -1,0 +1,152 @@
+.archive-grid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 343 / 571;
+}
+
+.archive-item {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.archive-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+}
+
+.archive-item:hover .archive-image {
+  opacity: 0.88;
+  transform: scale(1.025);
+}
+
+.archive-item--1 {
+  top: 0;
+  left: 0;
+  width: 65.8892%;
+  height: 52.7145%;
+}
+
+.archive-item--2 {
+  top: 80.9107%;
+  left: 34.1108%;
+  width: 65.8892%;
+  height: 19.0893%;
+}
+
+.archive-item--3 {
+  top: 54.1156%;
+  left: 34.1108%;
+  width: 31.7784%;
+  height: 25.394%;
+}
+
+.archive-item--4 {
+  top: 54.1156%;
+  left: 68.2216%;
+  width: 31.7784%;
+  height: 25.394%;
+}
+
+.archive-item--5 {
+  top: 54.1156%;
+  left: 0;
+  width: 31.7784%;
+  height: 25.394%;
+}
+
+.archive-item--6 {
+  top: 0;
+  left: 68.2216%;
+  width: 31.7784%;
+  height: 52.7145%;
+}
+
+.archive-item--7 {
+  top: 80.9107%;
+  left: 0;
+  width: 31.7784%;
+  height: 19.0893%;
+}
+
+.archive-grid--mirrored .archive-item--1 {
+  left: 34.1108%;
+}
+
+.archive-grid--mirrored .archive-item--2,
+.archive-grid--mirrored .archive-item--6 {
+  left: 0;
+}
+
+.archive-grid--mirrored .archive-item--7 {
+  left: 68.2216%;
+}
+
+@media (min-width: 768px) {
+  .archive-grid {
+    aspect-ratio: 1872 / 1165;
+  }
+
+  .archive-item--1,
+  .archive-grid--mirrored .archive-item--1 {
+    top: 0;
+    left: 0;
+    width: 49.5726%;
+    height: 39.9142%;
+  }
+
+  .archive-item--2,
+  .archive-grid--mirrored .archive-item--2 {
+    top: 41.2876%;
+    left: 75.641%;
+    width: 24.359%;
+    height: 58.7124%;
+  }
+
+  .archive-item--3 {
+    top: 41.2876%;
+    left: 0;
+    width: 24.359%;
+    height: 58.7124%;
+  }
+
+  .archive-item--4 {
+    top: 41.2876%;
+    left: 25.2137%;
+    width: 24.359%;
+    height: 58.7124%;
+  }
+
+  .archive-item--5 {
+    top: 0;
+    left: 75.641%;
+    width: 24.359%;
+    height: 39.9142%;
+  }
+
+  .archive-item--6,
+  .archive-grid--mirrored .archive-item--6 {
+    top: 0;
+    left: 50.4274%;
+    width: 24.359%;
+    height: 59.485%;
+  }
+
+  .archive-item--7,
+  .archive-grid--mirrored .archive-item--7 {
+    top: 60.8584%;
+    left: 50.4274%;
+    width: 24.359%;
+    height: 39.1416%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-image {
+    transition: none;
+  }
+}

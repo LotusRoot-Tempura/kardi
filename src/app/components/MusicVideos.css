@@ -1,0 +1,118 @@
+.music-videos-track {
+  position: relative;
+  width: 100%;
+  height: clamp(180px, 51vw, 565px);
+}
+
+.music-videos-card {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + var(--mobile-x));
+  z-index: var(--video-z);
+  width: calc(100vw - 48px);
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: black;
+  color: white;
+  opacity: var(--video-opacity);
+  transform: translate(-50%, -50%) scale(var(--mobile-scale));
+  transition:
+    left 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 420ms ease;
+  will-change: left, transform, opacity;
+}
+
+.music-videos-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgb(0 0 0 / 25%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.music-videos-card--active::after {
+  opacity: 1;
+}
+
+.music-videos-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.music-videos-card:not(.music-videos-card--active) {
+  cursor: pointer;
+}
+
+.music-videos-card--active {
+  cursor: pointer;
+}
+
+.music-videos-card:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+.music-videos-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: transform 200ms ease;
+}
+
+.music-videos-card--active:hover .music-videos-play-icon {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.music-videos-title-text {
+  display: block;
+  max-width: 100%;
+  animation: music-videos-title-in 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes music-videos-title-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .music-videos-track {
+    height: 565px;
+  }
+
+  .music-videos-card {
+    left: calc(50% + var(--desktop-x));
+    transform: translate(-50%, -50%) scale(var(--desktop-scale));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-videos-card,
+  .music-videos-card::after,
+  .music-videos-play-icon {
+    transition: none;
+  }
+
+  .music-videos-title-text {
+    animation: none;
+  }
+}

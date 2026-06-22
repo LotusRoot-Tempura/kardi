@@ -1,0 +1,221 @@
+.archive-detail-page {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  color: #000;
+  background-color: #f5f5f3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.archive-detail-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  color: #fff;
+  background: #000;
+}
+
+.archive-detail-mark {
+  display: flex;
+  width: 50px;
+  align-items: center;
+}
+
+.archive-detail-mark img {
+  display: block;
+  width: 24px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.archive-detail-back {
+  color: inherit;
+  font-family: var(--font-kardi-display);
+  font-size: 24px;
+  line-height: 0.8;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.archive-detail-stage {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archive-detail-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.archive-detail-track {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.archive-detail-slide {
+  min-width: 0;
+  margin: 0;
+  flex: 0 0 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.archive-detail-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.archive-detail-controls {
+  display: none;
+}
+
+.archive-detail-thumbnails {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  height: 92px;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.archive-detail-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.archive-detail-thumbnails button {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #d9d9d9;
+  opacity: 0.25;
+  transition: opacity 200ms ease;
+}
+
+.archive-detail-thumbnails button.is-active,
+.archive-detail-thumbnails button:hover,
+.archive-detail-thumbnails button:focus-visible {
+  opacity: 1;
+}
+
+.archive-detail-thumbnails button:focus-visible,
+.archive-detail-controls button:focus-visible,
+.archive-detail-back:focus-visible,
+.archive-detail-mark:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.archive-detail-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .archive-detail-header {
+    height: 100px;
+    padding: 24px;
+    color: #000;
+    background: transparent;
+  }
+
+  .archive-detail-mark img {
+    width: 50px;
+    height: 48px;
+  }
+
+  .archive-detail-back {
+    font-size: 36px;
+    line-height: 1.5;
+  }
+
+  .archive-detail-stage {
+    top: 100px;
+    right: 100px;
+    bottom: 100px;
+    left: 100px;
+  }
+
+  .archive-detail-viewport {
+    width: min(56.25vw, 1080px);
+  }
+
+  .archive-detail-controls {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    height: 100px;
+    align-items: center;
+    gap: 24px;
+    transform: translateX(-50%);
+  }
+
+  .archive-detail-controls button {
+    width: 48px;
+    height: 48px;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: #000;
+    background: transparent;
+  }
+
+  .archive-detail-controls svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .archive-detail-thumbnails {
+    top: 124px;
+    right: 24px;
+    bottom: 24px;
+    left: auto;
+    width: 60px;
+    height: auto;
+    flex-direction: column;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-detail-thumbnails button {
+    transition: none;
+  }
+}
