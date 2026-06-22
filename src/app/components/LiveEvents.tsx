@@ -297,7 +297,12 @@ export function LiveEvents() {
         </div>
       </div>
 
-      <ViewMoreButton to="/live-events" tone="dark" className="relative mt-12 md:mt-0" />
+      <ViewMoreButton
+        to="https://calendar.goodduck.xyz/share/AT202404210145029126"
+        tone="dark"
+        className="relative mt-12 md:mt-0"
+        external
+      />
     </section>
   );
 }
