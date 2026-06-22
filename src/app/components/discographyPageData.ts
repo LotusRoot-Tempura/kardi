@@ -10,10 +10,10 @@ import playerOneCover from "../../../album_cover/player 1.png";
 import lightsOutCover from "../../../album_cover/when the light out.png";
 import whenIMoveCover from "../../../album_cover/whenimove.png";
 import wintersGlowCover from "../../../album_cover/winterglow.png";
-import drawCover from "../../../album_cover/그리다.png";
-import nightKeeperCover from "../../../album_cover/별밤지기.png";
-import yulgangCover from "../../../album_cover/열혈강호귀환ost.png";
-import hiddenSingerCover from "../../../album_cover/히든싱어7.png";
+import drawCover from "../../../album_cover/draw.png";
+import nightKeeperCover from "../../../album_cover/night-keeper.png";
+import yulgangCover from "../../../album_cover/yulgang-ost.png";
+import hiddenSingerCover from "../../../album_cover/hidden-singer-7.png";
 
 export interface DiscographyListItem {
   id: number;

@@ -17,7 +17,7 @@ import { Profile } from "@/app/components/Profile";
 import { kardiSocialLinks } from "@/app/components/socialLinks";
 import svgPaths from "@/imports/Hero/svg-478htdyu4z";
 import markIcon from "@/imports/Hero/afd586037fd37cf204c30da1321f68d986913b90.png";
-import menuTexture from "@/imports/Menu클릭시/34763e1d743bc3ee75f9091120bd3ab719c293d1.png";
+import menuTexture from "@/imports/MenuClick/34763e1d743bc3ee75f9091120bd3ab719c293d1.png";
 
 const heroVideoUrl = "https://dev-file-v2.goodduck.xyz/feed/video/f6b5286b94284378b40e1a358f13b7d3.mp4";
 

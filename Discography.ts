@@ -1,7 +1,7 @@
 import img1 from "./album_cover/chill.png";
-import img2 from "./album_cover/히든싱어7.png";
-import img3 from "./album_cover/별밤지기.png";
-import img4 from "./album_cover/그리다.png";
+import img2 from "./album_cover/hidden-singer-7.png";
+import img3 from "./album_cover/night-keeper.png";
+import img4 from "./album_cover/draw.png";
 import img5 from "./album_cover/party.png";
 import img6 from "./album_cover/insideout.jpg";
 import img7 from "./album_cover/whenimove.png";
@@ -11,7 +11,7 @@ import img10 from "./album_cover/haveagoodtime.png";
 import img11 from "./album_cover/no doubt.png";
 import img12 from "./album_cover/notbutdisco.png";
 import img13 from "./album_cover/player 1.png";
-import img14 from "./album_cover/열혈강호귀환ost.png";
+import img14 from "./album_cover/yulgang-ost.png";
 import img15 from "./album_cover/when the light out.png";
 import img16 from "./album_cover/embers.png";
 
