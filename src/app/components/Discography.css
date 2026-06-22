@@ -7,7 +7,7 @@
 .discography-card {
   position: absolute;
   top: 50%;
-  left: calc(50% + var(--mobile-x));
+  left: 50%;
   z-index: var(--card-z);
   width: 250px;
   height: 250px;
@@ -16,12 +16,12 @@
   border: 0;
   background: transparent;
   opacity: var(--card-opacity);
-  transform: translate(-50%, -50%) scale(var(--mobile-scale));
+  transform: translate3d(calc(-50% + var(--mobile-x)), -50%, 0) scale(var(--mobile-scale));
   transition:
-    left 620ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 420ms ease;
-  will-change: left, transform, opacity;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .discography-card:not(:disabled) {
@@ -57,10 +57,10 @@
   }
 
   .discography-card {
-    left: calc(50% + var(--desktop-x));
+    left: 50%;
     width: 400px;
     height: 400px;
-    transform: translate(-50%, -50%) scale(var(--desktop-scale));
+    transform: translate3d(calc(-50% + var(--desktop-x)), -50%, 0) scale(var(--desktop-scale));
   }
 }
 

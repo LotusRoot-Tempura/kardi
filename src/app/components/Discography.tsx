@@ -129,42 +129,31 @@ export function Discography() {
               pointerEvents: isVisible ? "auto" : "none",
             };
 
-            const image = (
-              <ImageWithFallback
-                src={album.coverUrl}
-                alt={isActive ? `${album.title} album cover` : ""}
-                className="size-full object-cover"
-                draggable={false}
-                loading="eager"
-                decoding="async"
-              />
-            );
-
-            return isActive ? (
+            return (
               <Link
                 key={album.coverUrl}
                 to={`/discography/${album.detailId}`}
                 className="discography-card"
                 style={cardStyle}
-                tabIndex={0}
-                aria-current="true"
-                aria-label={`View ${album.title} album details`}
-              >
-                {image}
-              </Link>
-            ) : (
-              <button
-                key={album.coverUrl}
-                type="button"
-                className="discography-card"
-                style={cardStyle}
-                onClick={() => setActiveIndex(albumIndex)}
+                onClick={(event) => {
+                  if (isActive) return;
+                  event.preventDefault();
+                  setActiveIndex(albumIndex);
+                }}
                 tabIndex={isVisible ? 0 : -1}
+                aria-current={isActive ? "true" : undefined}
                 aria-hidden={!isVisible}
-                aria-label={`Show ${album.title}`}
+                aria-label={isActive ? `View ${album.title} album details` : `Show ${album.title}`}
               >
-                {image}
-              </button>
+                <ImageWithFallback
+                  src={album.coverUrl}
+                  alt={isActive ? `${album.title} album cover` : ""}
+                  className="size-full object-cover"
+                  draggable={false}
+                  loading={distance <= 2 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </Link>
             );
           })}
         </div>

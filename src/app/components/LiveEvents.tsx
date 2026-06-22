@@ -204,39 +204,30 @@ function CarouselView({ schedules }: { schedules: Schedule[] }) {
             const isActive = virtualIndex === activeVirtualIndex;
             const isNearViewport = distance <= 2;
 
-            const image = (
-              <ImageWithFallback
-                src={schedule.imageUrl || scheduleEmpty}
-                alt={isActive ? `${schedule.title} event poster` : ""}
-                className="size-full object-cover"
-                draggable={false}
-                loading="eager"
-                decoding="async"
-              />
-            );
-
-            return isActive ? (
+            return (
               <Link
                 key={`${Math.floor(virtualIndex / itemCount)}-${schedule.calendarId}`}
                 to={`/live-events/${schedule.calendarId}`}
-                className="live-events-slide live-events-slide--active"
-                aria-current="true"
-                aria-label={`View ${schedule.title} event details`}
-              >
-                {image}
-              </Link>
-            ) : (
-              <button
-                key={`${Math.floor(virtualIndex / itemCount)}-${schedule.calendarId}`}
-                type="button"
-                className="live-events-slide"
-                onClick={() => moveTo(virtualIndex)}
+                className={`live-events-slide ${isActive ? "live-events-slide--active" : ""}`}
+                onClick={(event) => {
+                  if (isActive) return;
+                  event.preventDefault();
+                  moveTo(virtualIndex);
+                }}
                 tabIndex={isNearViewport ? 0 : -1}
+                aria-current={isActive ? "true" : undefined}
                 aria-hidden={!isNearViewport}
-                aria-label={`Show ${schedule.title}`}
+                aria-label={isActive ? `View ${schedule.title} event details` : `Show ${schedule.title}`}
               >
-                {image}
-              </button>
+                <ImageWithFallback
+                  src={schedule.imageUrl || scheduleEmpty}
+                  alt={isActive ? `${schedule.title} event poster` : ""}
+                  className="size-full object-cover"
+                  draggable={false}
+                  loading={isNearViewport ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </Link>
             );
           })}
         </div>
