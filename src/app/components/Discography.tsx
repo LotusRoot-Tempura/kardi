@@ -170,11 +170,11 @@ export function Discography() {
 
           <Link
             to={`/discography/${activeAlbum.detailId}`}
-            className="flex h-8 flex-1 items-center justify-center overflow-hidden text-ellipsis text-center font-display text-2xl uppercase leading-none text-inherit no-underline md:h-[72px] md:text-4xl"
+            className="flex h-8 min-w-0 flex-1 items-center justify-center overflow-hidden text-center font-display text-2xl uppercase leading-none text-inherit no-underline md:h-[72px] md:text-4xl"
             aria-live="polite"
             aria-label={`View ${activeAlbum.title} album details`}
           >
-            <span key={activeAlbum.title} className="discography-title-text">
+            <span key={activeAlbum.title} className="discography-title-text truncate">
               {activeAlbum.title}
             </span>
           </Link>
