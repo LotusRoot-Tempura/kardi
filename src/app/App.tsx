@@ -260,7 +260,10 @@ function HomePage() {
     <>
       <HomeReleasePopup />
       <main className="relative min-h-screen overflow-x-hidden bg-background font-display text-foreground">
-        <section id="home" className="relative flex min-h-screen flex-col items-end justify-end overflow-hidden bg-black px-4 pb-4 pt-28 md:px-6 md:pb-6">
+        <section
+          id="home"
+          className="relative flex min-h-[100svh] flex-col items-end justify-end overflow-hidden bg-black px-4 pb-[calc(56px+env(safe-area-inset-bottom))] pt-28 md:min-h-screen md:px-6 md:pb-6"
+        >
           <div className="absolute inset-0 bg-black" aria-hidden="true">
             <video className="h-full w-full object-cover opacity-[0.55]" autoPlay loop muted playsInline preload="auto">
               <source src={heroVideoUrl} type="video/mp4" />
