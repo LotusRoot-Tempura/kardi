@@ -85,7 +85,7 @@ function ScheduleCopy({ schedule, linked = false }: { schedule: Schedule; linked
   const content = (
     <>
       <p className="w-full overflow-hidden text-ellipsis whitespace-nowrap">{getTagLabel(schedule.tag)}</p>
-      <p className="max-h-[2em] w-full overflow-hidden text-ellipsis">{schedule.title}</p>
+      <p className="max-h-[2em] w-full overflow-hidden text-ellipsis text-2xl leading-none md:text-4xl">{schedule.title}</p>
       <p className="w-full overflow-hidden text-ellipsis whitespace-nowrap">{formatScheduleDate(schedule.scheduleDate)}</p>
     </>
   );
@@ -256,7 +256,7 @@ function ListView({ schedules }: { schedules: Schedule[] }) {
           className={`flex w-full flex-col items-center pb-4 text-center font-display text-base uppercase leading-[1.2] tracking-[0.01em] text-black no-underline md:grid md:h-[84px] md:grid-cols-[repeat(3,minmax(0,1fr))_32px] md:items-center md:gap-6 md:py-6 md:text-left md:text-4xl md:leading-none ${index < schedules.length - 1 ? "border-b-2 border-black" : ""}`}
         >
           <p className="overflow-hidden text-ellipsis whitespace-nowrap">{getTagLabel(schedule.tag)}</p>
-          <p className="mt-2 max-w-full overflow-hidden text-ellipsis whitespace-nowrap md:mt-0">{schedule.title}</p>
+          <p className="mt-2 max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-2xl leading-none md:mt-0 md:text-4xl">{schedule.title}</p>
           <p className="mt-2 overflow-hidden text-ellipsis whitespace-nowrap md:mt-0">{formatScheduleDate(schedule.scheduleDate)}</p>
           <span className="hidden md:block" aria-hidden="true">
             <ArrowIcon diagonal />

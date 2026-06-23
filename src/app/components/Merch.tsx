@@ -242,7 +242,7 @@ export function Merch() {
             <ArrowIcon direction="left" />
           </button>
 
-          <p className="flex h-full min-w-0 flex-1 items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap text-center font-display text-base uppercase leading-none md:text-4xl" aria-live="polite">
+          <p className="flex h-full min-w-0 flex-1 items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap text-center font-display text-2xl uppercase leading-none md:text-4xl" aria-live="polite">
             <span key={activeProduct.id} className="merch-title-text overflow-hidden text-ellipsis">
               {activeProduct.title}
             </span>
