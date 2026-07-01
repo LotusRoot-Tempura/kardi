@@ -33,6 +33,8 @@ const tagLabels: Record<string, string> = {
   "004": "LIVE",
 };
 
+const featuredScheduleReferenceDate = "20260615";
+
 function parseCsv(csv: string) {
   const rows: string[][] = [];
   let row: string[] = [];
@@ -91,18 +93,6 @@ function compareSchedules(first: Schedule, second: Schedule) {
   return normalizeTime(first.scheduleTime).localeCompare(normalizeTime(second.scheduleTime));
 }
 
-function getTodayInKorea() {
-  const dateParts = new Intl.DateTimeFormat("en", {
-    timeZone: "Asia/Seoul",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(new Date());
-  const date = Object.fromEntries(dateParts.map(({ type, value }) => [type, value]));
-
-  return `${date.year}${date.month}${date.day}`;
-}
-
 function getSchedulesFromCsv() {
   const [header, ...rows] = parseCsv(scheduleCsv);
   const columnIndex = Object.fromEntries(header.map((column, index) => [column, index]));
@@ -142,7 +132,6 @@ export function getTagLabel(tag: string) {
 export const allSchedules = getSchedulesFromCsv();
 
 export function getFeaturedSchedules(limit = 5) {
-  const today = getTodayInKorea();
-  const upcomingSchedules = allSchedules.filter(({ scheduleDate }) => scheduleDate >= today);
+  const upcomingSchedules = allSchedules.filter(({ scheduleDate }) => scheduleDate >= featuredScheduleReferenceDate);
   return (upcomingSchedules.length ? upcomingSchedules : allSchedules).slice(0, limit);
 }

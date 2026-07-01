@@ -10,6 +10,7 @@ import {
   getTagLabel,
 } from "@/app/components/scheduleData";
 import { ViewMoreButton } from "@/app/components/ViewMoreButton";
+import { ViewportFixedBackground } from "@/app/components/ViewportFixedBackground";
 import "./LiveEvents.css";
 
 type ViewMode = "carousel" | "list";
@@ -274,11 +275,7 @@ export function LiveEvents() {
 
   return (
     <section id="lives-events" data-gnb-theme="dark" aria-labelledby="live-events-title" className="relative flex w-full flex-col items-center gap-6 overflow-hidden px-4 py-24 text-black md:gap-[72px] md:px-6 md:py-[120px]">
-      <div
-        className="live-events-viewport-background"
-        style={{ backgroundImage: `url(${liveEventBackground})` }}
-        aria-hidden="true"
-      />
+      <ViewportFixedBackground image={liveEventBackground} />
 
       <div className="relative flex w-full items-center justify-center">
         <h2 id="live-events-title" className="font-display text-[32px] font-normal uppercase leading-none text-[#b00020] md:text-[56px] md:leading-[0.8]">

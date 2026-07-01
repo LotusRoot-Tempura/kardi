@@ -1,13 +1,3 @@
-.merch-viewport-background {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 .merch-track {
   position: relative;
   width: 100%;

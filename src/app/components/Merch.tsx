@@ -1,6 +1,7 @@
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import merchBackground from "../../../live_event_bg.png";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
+import { ViewportFixedBackground } from "@/app/components/ViewportFixedBackground";
 import "./Merch.css";
 
 type MerchProduct = {
@@ -159,7 +160,7 @@ export function Merch() {
       aria-labelledby="merch-title"
       className="relative z-10 flex w-full flex-col items-center gap-6 overflow-hidden bg-[#f7f7f7] px-4 py-24 text-black md:gap-[72px] md:px-6 md:py-[120px]"
     >
-      <div className="merch-viewport-background" style={{ backgroundImage: `url(${merchBackground})` }} aria-hidden="true" />
+      <ViewportFixedBackground image={merchBackground} />
 
       <h2 id="merch-title" className="relative font-display text-[32px] font-normal uppercase leading-none text-[#b00020] md:text-[56px] md:leading-[0.8]">
         Merch
